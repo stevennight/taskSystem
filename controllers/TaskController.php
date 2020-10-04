@@ -167,6 +167,7 @@ class TaskController extends Controller
                 ->groupBy(['t.system_id'])
                 ->leftJoin(System::tableName() . 'AS s', 't.system_id = s.id')
                 ->leftJoin(Module::tableName() . 'AS m', 't.module_id = m.id')
+                ->orderBy('t.system_id')
                 ->asArray()
                 ->all();
             $systemSumModel = $systemSumQuery->select(['t.system_id', 'SUM(t.score) AS score', 'SUM(t.use_time) AS use_time'])
@@ -178,6 +179,7 @@ class TaskController extends Controller
                 ->groupBy(['t.system_id', 't.module_id'])
                 ->leftJoin(System::tableName() . 'AS s', 't.system_id = s.id')
                 ->leftJoin(Module::tableName() . 'AS m', 't.module_id = m.id')
+                ->orderBy('t.system_id')
                 ->asArray()
                 ->all();
         }
