@@ -45,7 +45,7 @@ class Task extends \yii\db\ActiveRecord
             [['title'], 'string', 'max' => 50],
             [['desc'], 'string', 'max' => 255],
             [['date'], 'date', 'format' => 'php:Y-m-d'],
-            [['begin_at', 'end_at'], 'date', 'format' => 'php:H:i'],
+            [['begin_at', 'end_at'], 'date', 'format' => 'php:Hi'],
             ['score', 'default', 'value' => 0],
             ['module_id', 'moduleValidator']
         ];
