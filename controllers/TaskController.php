@@ -69,6 +69,9 @@ class TaskController extends Controller
         $systemModel = $this->getSystemModel();
         $moduleModel = [];
 
+        // 设置默认值
+        $model->date = strtotime('Y-m-d');
+
         return $this->render('form', [
             'model' => $model,
             'systemModel' => $systemModel,
