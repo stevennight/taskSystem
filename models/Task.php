@@ -85,8 +85,8 @@ class Task extends \yii\db\ActiveRecord
 
     public function beforeSave($insert)
     {
-        $this->begin_at = $this->date . ' ' . $this->begin_at;
-        $this->end_at = $this->date . ' ' . $this->end_at;
+        $this->begin_at = $this->date . ' ' . substr($this->begin_at, 0, 2) . ':' . substr($this->begin_at, 2, 2);
+        $this->end_at = $this->date . ' ' . substr($this->end_at, 0, 2) . ':' . substr($this->end_at, 2, 2);
 
         $begin = strtotime($this->begin_at);
         $end = strtotime($this->end_at);
